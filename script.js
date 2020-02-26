@@ -41,9 +41,6 @@ resultEl.innerText = generatePassword(
 
 
 
-
-
-
 // Generate password function 
 // random generator function  
 function generatePassword (lower, upper, number, symbol, length){
@@ -72,9 +69,11 @@ const typesCount = lower + upper + number + symbol;
 const typesArr = [{lower},{upper},{number},{symbol}].filter
 (item => Object.values(item)[0]);
 
+
 // if none selected needs to stop
 if( typesCount === false){
   return '';
+
 }
 
 //  types arr loops throight the type arr array to find the selected variables 
@@ -87,12 +86,19 @@ if( typesCount === false){
     generatedPassword += randomFunc[funcName](); 
     });
   }
+
+if(generatedPassword.length < 8 || generatedPassword.length > 128 ){
+isValid = false; 
+alert("Please choose a number between 8 and 120 !")
+}else{
+
+
 const finalPassword = generatedPassword.slice(0, length);
 
 return finalPassword; 
 
 
-}
+}}
 
 
 
