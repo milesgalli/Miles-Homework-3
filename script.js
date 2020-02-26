@@ -1,61 +1,52 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-
+const resultEl = document.getElementById("Password"); 
+const generateEl= document.getElementById("generate");
 // Ask the user the for generation criteria that they would like ?
-const resultEL = document.getElementById('Password')
-const length = prompt("how long do you want you ");
-const lower = confirm (" lowercase");
-const upper = confirm( " Uppercase"); 
-const number = confirm(" number ");
-const symbol = confirm("symbol "); 
-const generateEl = document.getElementById('generate')
 
-
-// Random Function Object 
-// Changing variable names, getRandomLower become lower 
 const randomFunc ={
   lower: getRandomLower, 
   upper: getRandomUpper, 
   number:getRandomNumber, 
   symbol: getRandomSymbol
 };
-// listening for a click, when that happens going to use an arrows function. Once this is clicked need to value of these events 
-// currently it will be a string, this has to be a number. We do this by add +. so lengthEL.value become +lenghtEl.value 
 
 generateEl.addEventListener('click', ()=> {
-const length = +number.value;
-const hasLower = (lower === true);
-const hasUpper = (upper === true); 
-const hasNumber = (number === true); 
-const hasSymbols = (symbol === true); 
-//console.log(hasLower,hasUpper,hasNumber,hasSymbol);
 
-resultEl.innertext = generatePassword(
+var length = prompt("how long do you want you ");
+var hasLower = confirm (" lowercase");
+var hasUpper = confirm( " Uppercase"); 
+var hasNumber = confirm(" number ");
+var hasSymbol = confirm("symbol "); 
+
+resultEl.innerText = generatePassword(
   hasLower,
   hasUpper,
   hasNumber,
   hasSymbol, 
   length
-  ); 
-
+  );
 });
+
+// Random Function Object 
+// Changing variable names, getRandomLower become lower 
+
+
+// listening for a click, when that happens going to use an arrows function. Once this is clicked need to value of these events 
+// currently it will be a string, this has to be a number. We do this by add +. so lengthEL.value become +lenghtEl.value 
+
+
+
+
+//console.log(hasLower,hasUpper,hasNumber,hasSymbol);
+
+
+
+
+
 
 // Generate password function 
 // random generator function  
-function generatePassword (lower, upper, number, symbol,length){
+function generatePassword (lower, upper, number, symbol, length){
    
 
 //1 init password varibale 
@@ -78,7 +69,8 @@ const typesCount = lower + upper + number + symbol;
 
 // use object.value pass and item in the array through. if it not included it is filtered out of the array
 
-const typesArr = [{lower},{upper},{number},{symbol}].filter(item => Object.values(item)[0]);
+const typesArr = [{lower},{upper},{number},{symbol}].filter
+(item => Object.values(item)[0]);
 
 // if none selected needs to stop
 if( typesCount === false){
